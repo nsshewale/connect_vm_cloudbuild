@@ -12,5 +12,5 @@ steps:
       chmod 600 ~/root/.ssh/id_rsa.pub && \\
       set -x && \\
       gcloud compute ssh instance-1 --ssh-key-file=~/home/niteshshewale6/.ssh/id_rsa.pub --zone=asia-south1-c
-      ls
+      nginx -v
       
