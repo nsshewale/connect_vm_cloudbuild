@@ -3,6 +3,6 @@ steps:
     args:
       - '-c'
       - >
-       'gcloud compute ssh --zone $_ZONE cloudbuild@$_INSTANCE_NAME --command '
-       'nginx -v'
+        gcloud compute ssh --zone $_ZONE cloudbuild@$_INSTANCE_NAME --command '
+        sudo su niteshshewale6@instance "nginx -v"'
       
