@@ -12,19 +12,4 @@ steps:
       - >
         gcloud compute ssh --zone $_CUSTOM_ZONE cloudbuild@$_INSTANCE_NAME --command '
         sudo su -c "cd $_PATH_TO_FOLDER && sudo mkdir niteshs"'
-    
     entrypoint: /bin/bash
- options:
-    logging: CLOUD_LOGGING_ONLY  #
-
-
-
-
-
-
-
-  
-
-
-
-
