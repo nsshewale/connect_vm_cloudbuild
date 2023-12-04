@@ -11,5 +11,4 @@ substitutions:
   _PATH_TO_FOLDER: "/home/niteshshewale6/snap"
   _ZONE: "asia-south1-c"      
 options:
-  substitution_option: ‘ALLOW_LOOSE’
   dynamic_substitutions: true
