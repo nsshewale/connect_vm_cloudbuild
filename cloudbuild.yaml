@@ -5,4 +5,11 @@ steps:
       - >
         gcloud compute ssh --zone $_ZONE cloudbuild@$_INSTANCE_NAME --command '
         sudo su niteshshewale6@instance -c "cd $_PATH_TO_FOLDER && sudo mkdir sample"'
-      
+timeout: 3600s
+substitutions:
+  _INSTANCE_NAME: "instance-1"
+  _PATH_TO_FOLDER: "/home/niteshshewale6/snap"
+  _ZONE: "asia-south1-c"      
+options:
+  substitution_option: ‘ALLOW_LOOSE’
+  dynamic_substitutions: true
