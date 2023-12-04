@@ -5,7 +5,7 @@ steps:
     args:
       - '-c'
       - |
-        echo -n "$(gcloud secrets versions access latest --ec2_private)" > /workspace/private-key
+        echo -n "$(gcloud secrets versions access latest --secret=ec2_private)" > /workspace/private-key
         chmod 600 /workspace/private-key
 
   # Step 2: SSH into the GCP VM
