@@ -1,14 +1,12 @@
 steps:
-  - name: gcr.io/cloud-builders/gcloud
-    args:
-      - '-c'
-      - >
-        gcloud compute ssh --zone $_ZONE cloudbuild@$_INSTANCE_NAME --command '
-        sudo su niteshshewale6@instance -c "cd $_PATH_TO_FOLDER && sudo mkdir sample"'
-timeout: 3600s
-substitutions:
-  _INSTANCE_NAME: "instance-1"
-  _PATH_TO_FOLDER: "/home/niteshshewale6/snap"
-  _ZONE: "asia-south1-c"      
-options:
-  dynamic_substitutions: true
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud compute ssh [instance-1] \
+      --zone=[asia-south1-c] \
+      --project=[affable-beaker-407007] \
+      --command "cd /snap && mkdir sample"
+
+
