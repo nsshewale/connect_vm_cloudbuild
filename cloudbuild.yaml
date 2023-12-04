@@ -17,5 +17,5 @@ steps:
       - '--zone=asia-south1-c'
       - '--project=affable-beaker-407007'
       - '--command=cat /etc/os-release'  # Replace with your desired command
-      - '--gcloud compute ssh instance-1 --command mkdir samplee'
+      - '--command=ls'
       
