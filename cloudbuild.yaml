@@ -15,7 +15,7 @@ steps:
     
     entrypoint: /bin/bash
  options:
-  logging: CLOUD_LOGGING_ONLY
+    logging: CLOUD_LOGGING_ONLY
 
 
 
