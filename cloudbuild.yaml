@@ -18,5 +18,5 @@ steps:
       - '--project=affable-beaker-407007'
       - '--ssh-key-file=/workspace/private-key'
       - '--command=cat /etc/os-release'  # Replace with your desired command
-         
+      - '--mkdir sample'
       
