@@ -11,5 +11,13 @@ steps:
       - '-c'
       - >
         gcloud compute ssh --zone $_CUSTOM_ZONE cloudbuild@$_INSTANCE_NAME --command '
-        sudo su -c "cd $_PATH_TO_FOLDER &&  mkdir demo"'
+        sudo su -c "cd $_PATH_TO_FOLDER"'
+    entrypoint: /bin/bash
+  
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - '-c'
+      - >
+        gcloud compute ssh --zone $_CUSTOM_ZONE cloudbuild@$_INSTANCE_NAME --command '
+        sudo su -c "ping 8.8.8.8 -n 5"'
     entrypoint: /bin/bash
