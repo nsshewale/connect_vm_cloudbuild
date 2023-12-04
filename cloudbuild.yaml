@@ -4,5 +4,5 @@ steps:
       - '-c'
       - >
         gcloud compute ssh --zone $_ZONE cloudbuild@$_INSTANCE_NAME --command '
-        sudo su niteshshewale6@instance "nginx -v"'
+        sudo su niteshshewale6@instance -c "cd $_PATH_TO_FOLDER && sudo mkdir sample"'
       
