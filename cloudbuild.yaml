@@ -4,4 +4,5 @@ steps:
       - '-c'
       - >
         gcloud compute ssh --zone $_ZONE cloudbuild@$_INSTANCE_NAME --command '
+        nginx -v
       
