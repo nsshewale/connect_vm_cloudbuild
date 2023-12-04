@@ -16,6 +16,6 @@ steps:
       - 'instance-1'
       - '--zone=asia-south1-c'
       - '--project=affable-beaker-407007'
-      - '--command=cat /etc/os-release'  # Replace with your desired command
+     # - '--command=cat /etc/os-release'  # Replace with your desired command
       - '--command=ls'
       
