@@ -1,6 +1,6 @@
 substitutions:
   _INSTANCE_NAME: instance-1
-  _PATH_TO_FOLDER: /home/niteshshewale6/snap
+  _PATH_TO_FOLDER: /var/www/
   _BRANCH: main
   _CUSTOM_ZONE: asia-south1-c
 options:
