@@ -7,6 +7,6 @@ steps:
     gcloud compute ssh [instance-1] \
       --zone=[asia-south1-c] \
       --project=[affable-beaker-407007] \
-      --command "cd /snap && mkdir sample"
+      
 
 
