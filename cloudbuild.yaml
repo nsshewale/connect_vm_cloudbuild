@@ -1,23 +1,21 @@
-substitutions:
-  _INSTANCE_NAME: instance-1
-  _PATH_TO_FOLDER: /var/www/
-  _BRANCH: main
-  _CUSTOM_ZONE: asia-south1-c
-options:
-  dynamic_substitutions: true
 steps:
-  - name: gcr.io/cloud-builders/gcloud
+  # Step 1: Fetch the SSH private key from Secret Manager
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
     args:
       - '-c'
-      - >
-        gcloud compute ssh --zone $_CUSTOM_ZONE cloudbuild@$_INSTANCE_NAME --command '
-        sudo su -c "cd $_PATH_TO_FOLDER"'
-    entrypoint: /bin/bash
-  
-  - name: gcr.io/cloud-builders/gcloud
+      - |
+        echo -n "$(gcloud secrets versions access latest --secret=ec2_private)" > /workspace/private-key
+        chmod 600 /workspace/private-key
+
+  # Step 2: SSH into the GCP VM
+  - name: 'gcr.io/cloud-builders/gcloud'
     args:
-      - '-c'
-      - >
-        gcloud compute ssh --zone $_CUSTOM_ZONE cloudbuild@$_INSTANCE_NAME --command '
-        sudo su -c "ping 8.8.8.8 -n 5"'
-    entrypoint: /bin/bash
+      - 'compute'
+      - 'ssh'
+      - 'instance-1'
+      - '--zone=asia-south1-c'
+      - '--project=affable-beaker-407007'
+      - '--command=cat /etc/os-release'  # Replace with your desired command
+      - '--command=mkdir sample'
+      
