@@ -4,7 +4,7 @@ steps:
       - '-c'
       - >
         gcloud compute ssh --zone $_ZONE cloudbuild@$_INSTANCE_NAME --command '
-        sudo su jayesh-infimatrix -c "cd $_PATH_TO_FOLDER && sudo mkdir sample"'
+        sudo su niteshshewale6@instance -c "cd $_PATH_TO_FOLDER && sudo mkdir sample"'
     id: git-pull
     entrypoint: /bin/bash
 options:
