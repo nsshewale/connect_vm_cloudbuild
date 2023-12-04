@@ -1,21 +1,7 @@
 steps:
-  # Step 1: Fetch the SSH private key from Secret Manager
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
+  - name: gcr.io/cloud-builders/gcloud
     args:
       - '-c'
-      - |
-        echo -n "$(gcloud secrets versions access latest --secret=ec2_private)" > /workspace/private-key
-        chmod 600 /workspace/private-key
-
-  # Step 2: SSH into the GCP VM
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'compute'
-      - 'ssh'
-      - 'instance-1'
-      - '--zone=asia-south1-c'
-      - '--project=affable-beaker-407007'
-     # - '--command=cat /etc/os-release'  # Replace with your desired command
-      - '--command=ls'
+      - >
+        gcloud compute ssh --zone $_ZONE cloudbuild@$_INSTANCE_NAME --command '
       
